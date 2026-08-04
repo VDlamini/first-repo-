@@ -120,3 +120,236 @@
   .signoff{
     text-align:right !important;
     font-style:italic;
+    color:var(--muted) !important;
+  }
+
+  .reasons{
+    max-width:900px;
+  }
+  .reasons-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:2.2rem 2.6rem;
+    margin-top:3rem;
+    text-align:left;
+  }
+  .reason{
+    border-left:1px solid rgba(201,162,75,0.35);
+    padding-left:1.2rem;
+  }
+  .reason .num{
+    font-family:'Playfair Display', serif;
+    color:var(--gold);
+    font-size:0.9rem;
+    letter-spacing:0.2em;
+  }
+  .reason p{
+    font-size:1.15rem;
+    line-height:1.6;
+    margin:0.4em 0 0;
+    color:var(--cream);
+  }
+
+  .proposal{
+    position:relative;
+  }
+  .proposal h1{
+    font-size:clamp(2.2rem, 6vw, 4rem);
+    margin-bottom:0.2em;
+  }
+  .proposal .sub{
+    color:var(--muted);
+    margin-bottom:2.6rem;
+  }
+
+  .btn-row{
+    display:flex;
+    gap:2rem;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    position:relative;
+    min-height:80px;
+  }
+
+  .btn{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.25rem;
+    letter-spacing:0.08em;
+    padding:0.9em 2.4em;
+    border-radius:2px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .btn-yes{
+    background:linear-gradient(180deg, var(--bright-red), var(--red));
+    color:var(--cream);
+    box-shadow:0 8px 30px rgba(200,38,44,0.35);
+  }
+  .btn-yes:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 36px rgba(200,38,44,0.5);
+  }
+
+  .btn-no{
+    background:transparent;
+    color:var(--muted);
+    border-color:rgba(201,169,162,0.4);
+    position:relative;
+  }
+
+  .after-yes{
+    display:none;
+    max-width:600px;
+  }
+  .after-yes.show{ display:block; }
+  .proposal.answered .pre-yes{ display:none; }
+
+  .after-yes h1{
+    font-size:clamp(2.4rem, 7vw, 4.5rem);
+  }
+  .after-yes p{
+    color:var(--muted);
+    font-size:1.3rem;
+    margin-top:1rem;
+  }
+
+  .heart{
+    position:fixed;
+    top:-40px;
+    font-size:1.4rem;
+    color:var(--bright-red);
+    pointer-events:none;
+    animation:fall linear forwards;
+    z-index:50;
+  }
+  @keyframes fall{
+    to{ transform:translateY(110vh) rotate(360deg); opacity:0; }
+  }
+
+  footer{
+    text-align:center;
+    padding:3rem 1rem 4rem;
+    color:var(--muted);
+    font-size:0.85rem;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="eyebrow">a small question, kept for a while</div>
+  <h1>Olwethu</h1>
+  <div class="rose-divider"></div>
+  <p class="sub">There's something I've been meaning to ask you.<br>Scroll, and let me get to it properly.</p>
+  <div class="scroll-hint">↓ keep going ↓</div>
+</section>
+
+<section class="letter">
+  <div class="eyebrow">for you</div>
+  <div>
+    <p>Olwethu, I've rewritten this more times than I'll admit, because saying it plainly never felt like enough. So instead I'm just going to be honest with you.</p>
+    <p>You've got this way of walking into a room and just making it lighter — like whatever mood was there before you showed up doesn't matter anymore. You're funny in that effortless way people can't fake, and it's not lost on me how good it feels to just be around your energy.</p>
+    <p>You've made ordinary days feel like they were worth paying attention to. That's rarer than people admit.</p>
+    <p class="signoff">— always, Fana</p>
+  </div>
+</section>
+
+<section class="reasons">
+  <div class="eyebrow">a few reasons, out of many</div>
+  <h2 class="display" style="font-size:clamp(1.8rem,4vw,2.6rem); margin-top:0.5rem;">Why you</h2>
+  <div class="reasons-grid">
+    <div class="reason">
+      <div class="num">I.</div>
+      <p>She's funny in a way that's completely her own — not performing it, just being it</p>
+    </div>
+    <div class="reason">
+      <div class="num">II.</div>
+      <p>Her energy changes the whole room the second she walks in</p>
+    </div>
+    <div class="reason">
+      <div class="num">III.</div>
+      <p>She's pretty in the way that sneaks up on you every time, even after you've seen her a hundred times</p>
+    </div>
+    <div class="reason">
+      <div class="num">IV.</div>
+      <p>[Fana — a small habit or quirk of hers you love. Add it whenever.]</p>
+    </div>
+    <div class="reason">
+      <div class="num">V.</div>
+      <p>[Fana — a memory the two of you share that mattered]</p>
+    </div>
+    <div class="reason">
+      <div class="num">VI.</div>
+      <p>Honestly, the list just keeps going</p>
+    </div>
+  </div>
+</section>
+
+<section class="proposal" id="proposal">
+  <div class="pre-yes">
+    <div class="eyebrow">the question</div>
+    <h1>Will you be my girlfriend?</h1>
+    <p class="sub">No pressure. Just an honest question, from someone who means it.</p>
+    <div class="btn-row" id="btnRow">
+      <button class="btn btn-yes" id="yesBtn" onclick="sayYes()">Yes, obviously</button>
+      <button class="btn btn-no" id="noBtn">No</button>
+    </div>
+  </div>
+
+  <div class="after-yes" id="afterYes">
+    <div class="eyebrow">and just like that</div>
+    <h1>She said yes.</h1>
+    <p>Thank you, Olwethu. This is the good part.</p>
+  </div>
+</section>
+
+<footer>made with care, for olwethu</footer>
+
+<script>
+  const noBtn = document.getElementById('noBtn');
+  const btnRow = document.getElementById('btnRow');
+
+  noBtn.addEventListener('mouseenter', () => {
+    const maxX = btnRow.clientWidth - noBtn.clientWidth - 20;
+    const maxY = 40;
+    const x = (Math.random() - 0.5) * Math.min(maxX, 240);
+    const y = (Math.random() - 0.5) * maxY;
+    noBtn.style.position = 'relative';
+    noBtn.style.left = x + 'px';
+    noBtn.style.top = y + 'px';
+  });
+
+  function sayYes(){
+    document.getElementById('proposal').classList.add('answered');
+    document.getElementById('afterYes').classList.add('show');
+    launchHearts();
+  }
+
+  function launchHearts(){
+    const symbols = ['♥','❤','♥'];
+    for(let i=0;i<40;i++){
+      setTimeout(() => {
+        const h = document.createElement('div');
+        h.className = 'heart';
+        h.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+        h.style.left = Math.random()*100 + 'vw';
+        h.style.fontSize = (1 + Math.random()*1.5) + 'rem';
+        h.style.animationDuration = (2.5 + Math.random()*2) + 's';
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 5000);
+      }, i * 80);
+    }
+  }
+</script>
+
+</body>
+</html>
